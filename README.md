@@ -17,6 +17,7 @@ you've ever seen - _Docker powered mini-Heroku_.
 ### Requirements
 * A working [Dokku host](http://dokku.viewdocs.io/dokku/getting-started/installation/)
 * [PostgreSQL](https://github.com/dokku/dokku-postgres) and [Redis](https://github.com/dokku/dokku-redis) plugins for Dokku
+* [Letsencrypt](https://github.com/dokku/dokku-letsencrypt) plugin for SSL (optionnal)
 
 # Setup
 
@@ -113,11 +114,10 @@ dokku run sentry "sentry upgrade"
 ```
 **Note:** After migrations you will be prompted to create initial user.
 
-To create another user (Optional) or if you skipped user creation in the previous command run:
+To create another user or if you skipped user creation in the previous command run:
 ```bash
 dokku run sentry "sentry createuser"
 ```
-
 
 ## SSL certificate
 
@@ -125,7 +125,13 @@ Last but not least, we can go an grab the SSL certificate from [Let's
 Encrypt](https://letsencrypt.org/).
 
 ```bash
-dokku config:set --no-restart minio DOKKU_LETSENCRYPT_EMAIL=you@example.com
+# Install letsencrypt plugin
+dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+
+# Set certificate contact email
+dokku config:set --no-restart sentry DOKKU_LETSENCRYPT_EMAIL=you@example.com
+
+# Generate certificate
 dokku letsencrypt sentry
 ```
 
