@@ -1,4 +1,4 @@
-![](images/repo_header.png)
+![](.github/images/repo_header.png)
 
 [![Sentry Version](https://img.shields.io/badge/Sentry_version-8.22.0-green.svg)](https://github.com/getsentry/sentry/releases/tag/8.22.0) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 # Run Sentry on Dokku
