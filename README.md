@@ -61,7 +61,7 @@ dokku config:set sentry SENTRY_CONF=./
 ### Setting secret key
 
 ```bash
-dokku config:set sentry SECRET_KEY=$(echo `openssl rand -base64 45` | tr -d \=+ | cut -c 1-32))
+dokku config:set sentry SECRET_KEY=$(echo `openssl rand -base64 45` | tr -d \=+ | cut -c 1-32)
 ```
 
 ## Domain setup
