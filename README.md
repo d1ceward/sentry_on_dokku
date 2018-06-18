@@ -1,6 +1,6 @@
 ![](.github/images/repo_header.png)
 
-[![Sentry Version](https://img.shields.io/badge/Sentry_version-8.22.0-green.svg)](https://github.com/getsentry/sentry/releases/tag/8.22.0) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Sentry Version](https://img.shields.io/badge/Sentry_version-8.22.0-green.svg)](https://github.com/getsentry/sentry/releases/tag/8.22.0) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/D1ceWard/sentry_on_dokku/graphs/commit-activity)
 # Run Sentry on Dokku
 
 ## Perquisites
@@ -101,7 +101,7 @@ git remote add dokku dokku@example.com:sentry
 
 ### Push Sentry
 
-Now we can push Minio to Dokku (_before_ moving on to the [next part](#domain-and-ssl-certificate)).
+Now we can push Sentry to Dokku (_before_ moving on to the [next part](#domain-and-ssl-certificate)).
 
 ```bash
 git push dokku master
