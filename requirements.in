@@ -1,2 +1,2 @@
-sentry==8.22.0
-sentry-plugins==8.22.0
+sentry==9.0.0
+sentry-plugins==9.0.0
