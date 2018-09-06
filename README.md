@@ -66,6 +66,14 @@ dokku config:set sentry SENTRY_CONF=./
 dokku config:set sentry SECRET_KEY=$(echo `openssl rand -base64 45` | tr -d \=+ | cut -c 1-32)
 ```
 
+## Persistent storage
+To persists user uploads (e.g. avatars) between restarts, create a folder on the host machine and tell Dokku to mount it to the app container.
+```bash
+sudo mkdir -p /var/lib/dokku/data/storage/sentry
+sudo chown 32768:32768 /var/lib/dokku/data/storage/sentry
+dokku storage:mount sentry /var/lib/dokku/data/storage/sentry:/var/lib/sentry/files
+```
+
 ## Domain setup
 
 To get the routing working, we need to apply a few settings. First we set
@@ -140,3 +148,16 @@ dokku letsencrypt sentry
 ## Wrapping up
 
 Your Sentry instance should now be available on [https://sentry.example.com](https://sentry.example.com).
+
+### Customize Sentry config
+You can customise `sentry.conf.py` to fit your needs. However you can also override any config variable using dokku env vars.
+Use SC_ prefix (as of Sentry Config) to override specific sentry config variables.
+
+Example configs for email :
+```bash
+dokku config:set sentry SC_EMAIL_HOST=mail.example.com \
+                        SC_EMAIL_HOST_USER=sentry@example.com \
+                        SC_EMAIL_HOST_PASSWORD=MailSecure1234 \
+                        SC_SERVER_EMAIL=sentry@example.com \
+                        SC_EMAIL_USE_TLS=True
+```
