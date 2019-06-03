@@ -1,5 +1,13 @@
+# Get current release name
+CURRENT_RELEASE=$(git tag | tail -1)
+
 # Get lastest release name
 RELEASE=$(curl --silent "https://github.com/getsentry/sentry/releases/latest" | sed 's#.*tag/\(.*\)\".*#\1#')
+
+# Exit script if already up to date
+if [ "v${RELEASE}" = $CURRENT_RELEASE ]; then
+  exit 0
+fi
 
 # Replace version line in requirements.txt with the new release
 sed -i "s#sentry==.*#sentry==${RELEASE}#" requirements.txt
