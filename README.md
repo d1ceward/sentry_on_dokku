@@ -1,6 +1,6 @@
 ![](.github/images/repo_header.png)
 
-[![Sentry](https://img.shields.io/badge/Sentry-9.1.1-blue.svg)](https://github.com/getsentry/sentry/releases/tag/9.1.1)
+[![Sentry](https://img.shields.io/badge/Sentry-9.1.2-blue.svg)](https://github.com/getsentry/sentry/releases/tag/9.1.2)
 [![Dokku](https://img.shields.io/badge/Dokku-Repo-blue.svg)](https://github.com/dokku/dokku)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/D1ceWard/sentry_on_dokku/graphs/commit-activity)
 
