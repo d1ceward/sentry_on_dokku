@@ -136,12 +136,11 @@ SENTRY_OPTIONS['filestore.options'] = {
 
 SENTRY_WEB_HOST = '0.0.0.0'
 SENTRY_WEB_PORT = 5000
-SENTRY_WEB_OPTIONS = {
-  'workers': 2,
-  'secure_scheme_headers': {
-    'X-FORWARDED-PROTO': 'https'
-  },
-}
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 secret_key = os.environ['SECRET_KEY']
 if not secret_key:

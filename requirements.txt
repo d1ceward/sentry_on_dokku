@@ -1,2 +1,2 @@
-sentry==9.1.2
+# Sentry plugins
 sentry-plugins==9.1.2
