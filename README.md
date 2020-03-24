@@ -56,11 +56,6 @@ dokku redis:link sentry sentry
 
 ## Configuration
 
-### Add SENTRY_CONF to environement variables
-```bash
-dokku config:set sentry SENTRY_CONF=./
-```
-
 ### Setting secret key
 
 ```bash
@@ -83,6 +78,22 @@ the domain.
 ```bash
 dokku domains:set sentry sentry.example.com
 ```
+
+The parent Dockerfile, provided by the sentry project, exposes port `9000` for web requests. Dokku will set up this port for outside communication, as explained in [its documentation](http://dokku.viewdocs.io/dokku/advanced-usage/proxy-management/#proxy-port-mapping). Because we want Sentry to be available on the default port `80` (or `443` for SSL), we need to fiddle around with the proxy settings.
+
+First add the proxy mapping that sentry uses.
+
+```bash
+dokku proxy:ports-add sentry http:80:9000
+```
+
+Then, remove the proxy mapping added by Dokku.
+
+```bash
+dokku proxy:ports-remove sentry http:80:5000
+```
+
+If `dokku proxy:report` sentry shows more than one port mapping, remove all port mappings except the added above.
 
 ## Push Sentry to Dokku
 
@@ -118,17 +129,15 @@ Now we can push Sentry to Dokku (_before_ moving on to the [next part](#domain-a
 git push dokku master
 ```
 
-### Create database schema
-After you have sucessfully deployed app to Dokku, run following commands to finish installing Sentry:
-```bash
-dokku run sentry "sentry upgrade"
-```
-**Note:** After migrations you will be prompted to create initial user.
+### Create first user
 
-To create another user or if you skipped user creation in the previous command run:
+To create a user run:
+
 ```bash
 dokku run sentry "sentry createuser"
 ```
+
+This will prompt you to enter an email, password and whether the user should be a superuser.
 
 ## SSL certificate
 
