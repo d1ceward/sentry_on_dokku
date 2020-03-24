@@ -169,5 +169,5 @@ dokku config:set sentry SC_EMAIL_HOST=mail.example.com \
                         SC_EMAIL_HOST_USER=sentry@example.com \
                         SC_EMAIL_HOST_PASSWORD=MailSecure1234 \
                         SC_SERVER_EMAIL=sentry@example.com \
-                        SC_EMAIL_USE_TLS=True
+                        SC_EMAIL_USE_TLS=true
 ```

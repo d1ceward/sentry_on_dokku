@@ -144,7 +144,7 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 secret_key = os.environ['SECRET_KEY']
 if not secret_key:
-    raise Exception('Error: SENTRY_SECRET_KEY is undefined, run `generate-secret-key` and set to -e SENTRY_SECRET_KEY')
+  raise Exception('Error: SENTRY_SECRET_KEY is undefined, run `generate-secret-key` and set to -e SENTRY_SECRET_KEY')
 
 SENTRY_OPTIONS['system.secret-key'] = secret_key
 
@@ -152,5 +152,7 @@ GITHUB_EXTENDED_PERMISSIONS = ['repo']
 
 # Expose any env that starts with SC_
 for env_key, env_val in os.environ.items():
-    if env_key.startswith('SC_'):
-        globals()[env_key[3:]] = env_val
+  if env_key.startswith('SC_'):
+    if env_val.lower() in ['true', 'false']
+      env_val = (env_val.lower() == 'true')
+    globals()[env_key[3:]] = env_val
