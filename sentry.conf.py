@@ -153,6 +153,6 @@ GITHUB_EXTENDED_PERMISSIONS = ['repo']
 # Expose any env that starts with SC_
 for env_key, env_val in os.environ.items():
   if env_key.startswith('SC_'):
-    if env_val.lower() in ['true', 'false']
+    if env_val.lower() in ['true', 'false']:
       env_val = (env_val.lower() == 'true')
     globals()[env_key[3:]] = env_val
