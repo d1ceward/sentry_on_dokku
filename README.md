@@ -158,16 +158,3 @@ dokku letsencrypt sentry
 ## Wrapping up
 
 Your Sentry instance should now be available on [https://sentry.example.com](https://sentry.example.com).
-
-### Customize Sentry config
-You can customise `sentry.conf.py` to fit your needs. However you can also override any config variable using dokku env vars.
-Use SC_ prefix (as of Sentry Config) to override specific sentry config variables.
-
-Example configs for email :
-```bash
-dokku config:set sentry SC_EMAIL_HOST=mail.example.com \
-                        SC_EMAIL_HOST_USER=sentry@example.com \
-                        SC_EMAIL_HOST_PASSWORD=MailSecure1234 \
-                        SC_SERVER_EMAIL=sentry@example.com \
-                        SC_EMAIL_USE_TLS=true
-```
