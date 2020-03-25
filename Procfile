@@ -1,4 +1,4 @@
-web: sentry --config=sentry.conf.py run web
-worker: sentry --config=sentry.conf.py run worker
-cron: sentry --config=sentry.conf.py run cron
-release: sentry --config=sentry.conf.py upgrade --noinput
+web: sentry --config ./ run web
+worker: sentry --config ./ run worker
+cron: sentry --config ./ run cron
+release: sentry --config ./ upgrade --noinput
